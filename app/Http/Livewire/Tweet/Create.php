@@ -22,6 +22,10 @@ class Create extends Component
     {
         $this->authorize('create', Tweet::class);
 
+        $this->validate([
+            'body' => 'required',
+        ]);
+
         Tweet::query()->create([
             'body'       => $this->body,
             'created_by' => auth()->id(),
