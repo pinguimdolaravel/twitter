@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Timeline;
 use App\Http\Livewire\Tweet\Create;
 use App\Models\Tweet;
 use App\Models\User;
@@ -24,7 +25,7 @@ it('should be able to create a tweet', function () {
         ->created_by->toBe($user->id);
 });
 
-it('should make sure that only authenticated users can tweet', function() {
+it('should make sure that only authenticated users can tweet', function () {
     livewire(Create::class)
         ->set('body', 'This is my first tweet')
         ->call('tweet')
@@ -38,7 +39,7 @@ it('should make sure that only authenticated users can tweet', function() {
         ->assertEmitted('tweet::created');
 });
 
-test('body is required', function() {
+test('body is required', function () {
     actingAs(User::factory()->create());
 
     livewire(Create::class)
@@ -47,7 +48,7 @@ test('body is required', function() {
         ->assertHasErrors(['body' => 'required']);
 });
 
-test('the tweet body should have a max length of 140 characters', function() {
+test('the tweet body should have a max length of 140 characters', function () {
     actingAs(User::factory()->create());
 
     livewire(Create::class)
@@ -56,4 +57,16 @@ test('the tweet body should have a max length of 140 characters', function() {
         ->assertHasErrors(['body' => 'max']);
 });
 
-todo('should show the tweet on the timeline');
+it('should show the tweet on the timeline', function () {
+    $user = User::factory()->create();
+
+    actingAs($user);
+
+    livewire(Create::class)
+        ->set('body', 'This is my first tweet')
+        ->call('tweet')
+        ->assertEmitted('tweet::created');
+
+    livewire(Timeline::class)
+        ->assertSee('This is my first tweet');
+});
