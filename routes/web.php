@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     Auth::login(\App\Models\User::first());
 
-    return to_route('twitter');
+    return view('dashboard');
 });
 
 Route::view('twitter', 'twitter')->name('twitter');
