@@ -4,7 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    Auth::login(\App\Models\User::first());
+
+    return to_route('twitter');
 });
 
 Route::view('twitter', 'twitter')->name('twitter');

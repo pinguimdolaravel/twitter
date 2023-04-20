@@ -20,7 +20,7 @@
         <div class="container mx-auto grid grid-cols-4 h-full">
 
             {{-- MENU --}}
-            <div class="pt-px text-[#d6d9db] space-y-1 flex flex-col ">
+            <div class="pt-px text-[#d6d9db] space-y-1 flex flex-col">
                 <x-menu.item route="/" icon="twitter"/>
                 <x-menu.item route="/timeline" title="Home" icon="home"/>
                 <x-menu.item route="/explore" title="Explore" icon="explore" />
