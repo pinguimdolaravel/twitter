@@ -38,7 +38,23 @@
     {{-- END MENU --}}
 
 
-    <div class="col-span-2  border-x-[0.625px] border-[#2f3336]">as</div>
+    {{-- CENTER --}}
+    <div class="col-span-2 border-x-[0.625px] border-lines">
+        <div class="flex-1 m-2">
+            <h2 class="px-4 py-2 text-xl font-semibold text-white">Home</h2>
+        </div>
+
+        <ul class="flex w-full grid grid-cols-2 text-center font-bold text-gray-500 border-b-[0.625px] border-lines">
+            <li class="pt-4 cursor-pointer hover:bg-neutral-900 flex justify-center">
+                <div class="border-b-4 w-fit pb-3 text-white border-twitter">For you</div>
+            </li>
+            <li class="pt-4 cursor-pointer hover:bg-neutral-900 flex justify-center">
+                <div class="border-b-4 w-fit pb-3 border-transparent">Following</div>
+            </li>
+        </ul>
+
+    </div>
+    {{-- END CENTER--}}
     <div class="">as</div>
 
 </div>
