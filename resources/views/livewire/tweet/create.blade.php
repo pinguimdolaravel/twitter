@@ -1,11 +1,11 @@
-<div class="px-3">
+<div class="px-3 w-full">
     <div class="flex align-top">
         <div>
             <img alt="Pinguim Academy" draggable="true" class="rounded-full"
                  src="https://pbs.twimg.com/profile_images/1441217650680500231/NtMy9zs5_normal.jpg"
             />
         </div>
-        <div x-data="{ editing: false }">
+        <div x-data="{ editing: false }" class="w-full">
             <label>
                 <textarea
                     wire:model="body" placeholder="What's happening?"

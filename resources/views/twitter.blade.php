@@ -44,7 +44,7 @@
             <h2 class="px-4 py-2 text-xl font-semibold text-white">Home</h2>
         </div>
 
-        <ul class="flex w-full grid grid-cols-2 text-center font-bold text-gray-500 border-b-[0.625px] border-lines">
+        <ul class="w-full grid grid-cols-2 text-center font-bold text-gray-500 border-b-[0.625px] border-lines">
             <li class="pt-4 cursor-pointer hover:bg-neutral-900 flex justify-center">
                 <div class="border-b-4 w-fit pb-3 text-white border-twitter">For you</div>
             </li>
@@ -53,8 +53,13 @@
             </li>
         </ul>
 
-        <div class="border-b-[0.625px] border-lines py-2">
+        <div class="border-b-[0.625px] border-lines py-2 w-full">
             <livewire:tweet.create/>
+        </div>
+
+        <div class="text-center text-twitter font-bold py-4 bg-transparent hover:bg-opacity-20
+        hover:bg-gray-900 cursor-pointer">
+            Show 245 tweets
         </div>
 
         <livewire:timeline/>
