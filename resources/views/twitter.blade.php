@@ -32,7 +32,7 @@
         <x-menu.item route="/more" title="More" icon="more"/>
 
         <div>
-            <x-btn.tweet>Tweet</x-btn.tweet>
+            <x-btn.tweet class="mt-6">Tweet</x-btn.tweet>
         </div>
     </div>
     {{-- END MENU --}}
@@ -53,9 +53,17 @@
             </li>
         </ul>
 
+        <div class="border-b-[0.625px] border-lines py-2">
+            <livewire:tweet.create/>
+        </div>
+
+        <livewire:timeline/>
     </div>
     {{-- END CENTER--}}
+
+    {{-- RIGHT SIDE --}}
     <div class="">as</div>
+    {{-- END RIGHT SIDE --}}
 
 </div>
 
