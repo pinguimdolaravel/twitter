@@ -1,9 +1,6 @@
-<div class="mt-10 text-white text-lg w-full">
-
+<div class="text-white text-lg w-full">
     @foreach($tweets as $tweet)
-        <div>
-            {{ $loop->index }} · {{ $tweet->body }}
-        </div>
+        <x-tweet :tweet="$tweet" />
     @endforeach
 
     <div class="bg-blue-400 h-10 w-10" x-data="{
@@ -12,7 +9,7 @@
                     items.forEach((item) => {
                         if(item.isIntersecting) {
                         console.log(item)
-                            @this.loadMore();
+                            @this.loadMore()
                         }
                     })
                 }, {
