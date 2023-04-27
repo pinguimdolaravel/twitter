@@ -13,8 +13,8 @@ class TweetSeeder extends Seeder
      */
     public function run(): void
     {
-        Tweet::factory()->count(400)->create([
-            'created_by' => User::first(),
-        ]);
+        User::all()->each(fn($user) => Tweet::factory()->count(40)->create([
+            'created_by' => $user,
+        ]));
     }
 }
