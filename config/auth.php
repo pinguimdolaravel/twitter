@@ -76,7 +76,7 @@ return [
     | Resetting Passwords
     |--------------------------------------------------------------------------
     |
-    | You may specify multiple password reset configurations if you have more
+    | You may specify multiple password reset configurations if you have more.blade.php
     | than one user table or model in the application and you want to have
     | separate password reset settings based on the specific user types.
     |
@@ -85,7 +85,7 @@ return [
     | they have less time to be guessed. You may change this as needed.
     |
     | The throttle setting is the number of seconds a user must wait before
-    | generating more password reset tokens. This prevents the user from
+    | generating more.blade.php password reset tokens. This prevents the user from
     | quickly generating a very large amount of password reset tokens.
     |
     */

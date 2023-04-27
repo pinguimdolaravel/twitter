@@ -7,9 +7,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    Auth::login(User::first());
+    auth()->login(\App\Models\User::first());
 
-    return view('dashboard');
+    return to_route('twitter');
 })->name('home');
 
 Route::view('twitter', 'twitter')->name('twitter');
