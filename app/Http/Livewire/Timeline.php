@@ -15,7 +15,7 @@ class Timeline extends Component
     public function render(): View
     {
         return view('livewire.timeline', [
-            'tweets' => Tweet::query()->latest()->paginate(
+            'tweets' => Tweet::query()->latest()->inRandomOrder()->paginate(
                 $this->perPage
             ),
         ]);

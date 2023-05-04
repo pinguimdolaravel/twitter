@@ -18,7 +18,17 @@
 
         <div class="w-full">
             <div class="flex justify-between w-full">
-                <div><span class="text-white font-bold text-base">Rafael Lunardelli</span>
+                <div>
+                    <span class="text-white font-bold text-base flex items-center space-x-1">
+                        <span>{{ $tweet->createdBy->name }}</span>
+                        @if($tweet->createdBy->subscribed('default'))
+                            <x-icons.selo-azul />
+                        @endif
+
+                        @if($tweet->createdby->subscribed('verified-org'))
+                            <x-icons.selo-dourado />
+                        @endif
+                    </span>
                     <span class="text-sm text-neutral-500 font-semibold">@r2luna · Apr 25</span></div>
                 <div>
                     <x-tweet.action icon="dots" color="gray"/>

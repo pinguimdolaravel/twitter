@@ -26,7 +26,7 @@
         <x-menu.item route="/notifications" title="Notifications" icon="notifications"/>
         <x-menu.item route="/messages" title="Messages" icon="messages"/>
         <x-menu.item route="/bookmarks" title="Bookmarks" icon="bookmarks"/>
-        <x-menu.item route="/twitter-blue" title="Twitter Blue" icon="twitter-blue"/>
+        <x-menu.item route="/subscribe" title="Twitter Blue" icon="twitter-blue"/>
         <x-menu.item route="/verified-organization" title="Verified Organization" icon="verified-org"/>
         <x-menu.item route="/profile" title="Profile" icon="profile"/>
         <x-menu.item route="/more" title="More" icon="more"/>
@@ -55,6 +55,7 @@
             </ul>
         </div>
 
+        {{ auth()->user()->name }}
         <div class="border-b-[0.625px] border-lines py-2 w-full z-0">
             <livewire:tweet.create/>
         </div>
