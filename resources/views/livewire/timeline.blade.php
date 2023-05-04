@@ -1,5 +1,5 @@
 <div class="text-white text-lg w-full">
-    @foreach($tweets as $tweet)
+    @foreach($this->tweets as $tweet)
         <x-tweet :tweet="$tweet" />
     @endforeach
 
