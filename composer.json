@@ -26,7 +26,8 @@
         "pestphp/pest": "^2.0",
         "pestphp/pest-plugin-laravel": "^2.0",
         "pestphp/pest-plugin-livewire": "^2.0",
-        "spatie/laravel-ignition": "^2.0"
+        "spatie/laravel-ignition": "^2.0",
+        "spatie/laravel-ray": "^1.32"
     },
     "autoload": {
         "psr-4": {

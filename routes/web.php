@@ -8,12 +8,10 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    auth()->loginUsingId(1);
-
     return to_route('twitter');
 })->name('home');
 
-Route::view('twitter', 'twitter')->name('twitter');
+Route::view('twitter', 'twitter')->middleware('auth')->name('twitter');
 Route::get('subscribe', SubscribeController::class)
     ->name('subscribe')
     ->middleware([Authenticate::class]);
