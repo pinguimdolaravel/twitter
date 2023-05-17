@@ -55,7 +55,6 @@
             </ul>
         </div>
 
-        {{ auth()->user()->name }}
         <div class="border-b-[0.625px] border-lines py-2 w-full z-0">
             <livewire:tweet.create/>
         </div>
