@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+Broadcast::channel('room.{roomId}', function ($user, $roomId) {
+    return DB::selectOne('select count(0) as count from room_user where room_id = ? and user_id = ?', [$roomId, $user->id])
+            ->count > 0;
 });
 
-Broadcast::channel('tweets', function() {
+Broadcast::channel('tweets', function () {
     return auth()->check();
 });
