@@ -1,22 +1,27 @@
+@props(['room', 'isSelected' => false])
+
+@php
+    /** @var \App\Models\User $withWho */
+    $withWho = $room->users->first();
+@endphp
 <div
-    class="
-        pt-2 pb-4 px-3 border-r-blue-400 border-r-2
-        bg-gray-600 bg-opacity-40
-        hover:bg-opacity-20 cursor-pointer"
+    {{ $attributes->class([
+        'pt-2 pb-4 px-3  border-r-2 bg-gray-600 bg-opacity-40 hover:bg-opacity-20 cursor-pointer',
+        'border-r-blue-400' => $isSelected
+]) }}
 >
     <div class="flex align-top space-x-2">
         <div>
-            <img alt="Pinguim Academy" draggable="true" class="rounded-full  w-14"
-                 src="https://pbs.twimg.com/profile_images/1441217650680500231/NtMy9zs5_normal.jpg"
+            <img alt="{{ $withWho->name }}" draggable="true" class="rounded-full w-14"
+                 src="{{ $withWho->avatar }}"
             />
         </div>
 
         <div class="w-full">
             <div class="flex justify-between w-full">
                 <div class="flex space-x-2">
-                        <span
-                            class="text-white font-bold text-base">Rafael Lunardelli</span>
-                    <span class="text-sm text-neutral-500 font-semibold">@r2luna ·</span>
+                    <span class="text-white font-bold text-base">{{ $withWho->name }}</span>
+                    <span class="text-sm text-neutral-500 font-semibold">{{ $withWho->username }} ·</span>
                 </div>
                 <div>
                     <x-tweet.action icon="dots" color="gray"/>

@@ -35,7 +35,13 @@
 
     <div class="h-5"></div>
 
-    <x-messages.contact />
+    @foreach($rooms as $room)
+        <x-messages.contact
+            :room="$room"
+            :is-selected="$room->id == $selectedRoom?->id"
+            wire:click="selectRoom({{ $room->id }})"
+        />
+    @endforeach
 </div>
 
 

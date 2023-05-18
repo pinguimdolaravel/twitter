@@ -39,6 +39,7 @@
 
     {{ $slot }}
 
+    <livewire:room.create-modal />
 </div>
 
 @livewireScripts
