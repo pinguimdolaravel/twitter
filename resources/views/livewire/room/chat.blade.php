@@ -4,7 +4,6 @@
         ">
 
 
-
     @if($room)
         <div class="flex align-center space-x-2 px-4 py-2 h-auto">
             <div>
@@ -23,31 +22,25 @@
             <div class="border-t-[0.625px] border-lines h-1 mx-2 my-4">
 
             </div>
-            <div class="flex justify-end">
-                <div class="w-fit">
-                    <div class="rounded-full rounded-br-md flex py-2 px-4 bg-[#43b3f6] hover:bg-twitter cursor-pointer text-sm">
-                        Mensagem
-                    </div>
+            @foreach($room->messages as $message)
+                <div class="flex {{ $message->from_id == auth()->id() ? 'justify-end' : '' }}">
+                    <div class="w-fit">
+                        <div
+                            class="
+                                {{ $message->from_id == auth()->id() ? 'rounded-br-md bg-[#43b3f6]' : 'rounded-bl-md bg-gray-700' }}
+                            rounded-full  flex py-2 px-4
+                             hover:bg-twitter cursor-pointer text-sm">
+                            {{ $message->message }}
+                        </div>
 
-                    <div class="flex text-xs hover:underline text-gray-500 justify-end mt-2 cursor-pointer">
-                        12:14 AM · Sent
+                        <div class="flex text-xs hover:underline text-gray-500 justify-end mt-2 cursor-pointer">
+                            {{ $message->created_at->diffForHumans() }} · Sent
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
 
-        <div class="border-lines border-y-[0.625px] bottom-0 py-2 px-4">
-            <div class="
-                flex items-center space-x-1 px-1
-                rounded-2xl bg-gray-600 bg-opacity-40 w-full h-10
-            ">
-                <x-tweet.action icon="picture" color="full-blue"/>
-                <x-tweet.action icon="gif" color="full-blue"/>
-                <x-tweet.action icon="emoji" color="full-blue"/>
-                <input type="text" placeholder="Start a new message"
-                       class="w-full bg-transparent focus:outline-none hover:outline-none border-0 outline-none focus:ring-0">
-                <x-tweet.action icon="send" color="full-blue" disabled=""/>
-            </div>
-        </div>
+        <livewire:room.chat.send-message :room="$room"/>
     @endif
 </div>

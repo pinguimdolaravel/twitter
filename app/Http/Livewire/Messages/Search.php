@@ -18,10 +18,10 @@ class Search extends Component
         return view('livewire.messages.search', [
             'rooms' => Room::query()
                 ->whereHas('users', function (Builder $b) {
-                    return $b->where('user_id', '=', 1);
+                    return $b->where('user_id', '=', auth()->id());
                 })
                 ->with('users', function ($b) {
-                    return $b->where('user_id', '!=', 1);
+                    return $b->where('user_id', '!=', auth()->id());
                 })
                 ->get()
         ]);
