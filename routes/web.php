@@ -7,9 +7,7 @@ use App\Http\Middleware\Authenticate;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return to_route('twitter');
-})->name('home');
+Route::view('/', 'welcome')->name('home');
 
 Route::view('twitter', 'twitter')->middleware('auth')->name('twitter');
 Route::get('subscribe', SubscribeController::class)

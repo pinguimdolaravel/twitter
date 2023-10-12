@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Tweet;
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\Computed;
 use Livewire\Component;
 
 /**
@@ -26,7 +27,8 @@ class ShowMore extends Component
         session()->put('last-tweet', Tweet::query()->latest()->first()->id);
     }
 
-    public function getCountProperty(): int
+    #[Computed]
+    public function count(): int
     {
         return Tweet::query()
             ->where('id', '>', session('last-tweet', 0))

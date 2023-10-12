@@ -6,6 +6,7 @@ use App\Models\Tweet;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Livewire\Attributes\Computed;
 use Livewire\Component;
 
 /**
@@ -14,7 +15,7 @@ use Livewire\Component;
 class Timeline extends Component
 {
     protected $listeners = [
-//        'tweet::created' => '$refresh',
+        'tweet::created' => '$refresh',
         'show::more' => '$refresh'
     ];
 
@@ -25,7 +26,8 @@ class Timeline extends Component
         return view('livewire.timeline');
     }
 
-    public function getTweetsProperty(): LengthAwarePaginator
+    #[Computed]
+    public function tweets(): LengthAwarePaginator
     {
         $data = Tweet::query()
             ->latest()
