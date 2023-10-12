@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
 use App\Models\Tweet;
 use Illuminate\Contracts\View\View;
@@ -20,7 +20,8 @@ class ShowMore extends Component
 
     public function more(): void
     {
-        $this->emitTo(Timeline::class, 'show::more');
+        $this->dispatch( 'show::more')
+            ->to(TimeLine::class);
 
         session()->put('last-tweet', Tweet::query()->latest()->first()->id);
     }

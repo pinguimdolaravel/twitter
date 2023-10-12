@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Livewire\Timeline;
-use App\Http\Livewire\Tweet\Create;
+use App\Livewire\Timeline;
+use App\Livewire\Tweet\Create;
 use App\Models\Tweet;
 use App\Models\User;
 use function Pest\Laravel\actingAs;
@@ -16,7 +16,7 @@ it('should be able to create a tweet', function ($tweet) {
     livewire(Create::class)
         ->set('body', $tweet)
         ->call('tweet')
-        ->assertEmitted('tweet::created');
+        ->assertDispatched('tweet::created');
 
     assertDatabaseCount('tweets', 1);
 
@@ -36,7 +36,7 @@ it('should make sure that only authenticated users can tweet', function () {
     livewire(Create::class)
         ->set('body', 'This is my first tweet')
         ->call('tweet')
-        ->assertEmitted('tweet::created');
+        ->assertDispatched('tweet::created');
 });
 
 test('body is required', function () {
@@ -65,7 +65,7 @@ it('should show the tweet on the timeline', function () {
     livewire(Create::class)
         ->set('body', 'This is my first tweet')
         ->call('tweet')
-        ->assertEmitted('tweet::created');
+        ->assertDispatched('tweet::created');
 
     livewire(Timeline::class)
         ->assertSee('This is my first tweet');
@@ -79,6 +79,6 @@ it('should set body as null after tweeting', function () {
     livewire(Create::class)
         ->set('body', 'This is my first tweet')
         ->call('tweet')
-        ->assertEmitted('tweet::created')
+        ->assertDispatched('tweet::created')
         ->assertSet('body', null);
 });

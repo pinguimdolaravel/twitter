@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Tweet;
+namespace App\Livewire\Tweet;
 
 use App\Events\TweetHasBeenCreated;
 use App\Models\Tweet;
@@ -33,7 +33,7 @@ class Create extends Component
         ]);
 
         TweetHasBeenCreated::dispatch();
-        $this->emit('tweet::created');
+        $this->dispatch('tweet::created');
         $this->reset('body');
     }
 }

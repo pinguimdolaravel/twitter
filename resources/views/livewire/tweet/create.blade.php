@@ -8,7 +8,7 @@
         <div x-data="{ editing: false }" class="w-full">
             <label>
                 <textarea
-                    wire:model="body" placeholder="What's happening?"
+                    wire:model.live="body" placeholder="What's happening?"
                     @click="editing = true"
                     class="
                         bg-transparent placeholder-gray-500 text-white font-medium
