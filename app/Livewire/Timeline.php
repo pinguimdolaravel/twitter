@@ -7,6 +7,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Locked;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 /**
@@ -14,13 +16,10 @@ use Livewire\Component;
  */
 class Timeline extends Component
 {
-    protected $listeners = [
-        'tweet::created' => '$refresh',
-        'show::more' => '$refresh'
-    ];
-
+    #[Locked]
     public int $perPage = 10;
 
+    #[On('tweet::created')]
     public function render(): View
     {
         return view('livewire.timeline');

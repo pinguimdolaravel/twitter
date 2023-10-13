@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
 
-Route::view('twitter', 'twitter')->middleware('auth')->name('twitter');
+Route::get('twitter', \App\Livewire\Twitter::class)
+    ->middleware('auth')->name('twitter');
+
 Route::get('subscribe', SubscribeController::class)
     ->name('subscribe')
     ->middleware([Authenticate::class]);

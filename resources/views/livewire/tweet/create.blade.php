@@ -32,7 +32,7 @@
                     <x-tweet.action icon="gps" disabled/>
                 </div>
 
-                <x-btn.tweet sm wire:click="tweet">Tweet</x-btn.tweet>
+                <x-btn.tweet sm wire:click="tweet" wire:confirm="Tem certeza?">Tweet</x-btn.tweet>
             </div>
         </div>
     </div>
